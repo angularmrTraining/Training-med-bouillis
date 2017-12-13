@@ -19,7 +19,7 @@
             <div class="col-sm-6">
             </div>
             <div class="col-sm-6" style="text-align: right;">
-              <a class="btn btn-app" ng-click="addUser()">
+              <a class="btn btn-app" (click)="addModal.show()">
                                     <i class="fa fa-plus-circle"></i> Ajouter
                                 </a>
             </div>
@@ -73,8 +73,8 @@
                 </td>
                 <td>Win 98+</td>
                 <td class=" btn-group-xs text-center">
-                  <a class="btn btn-primary"><i class="fa fa-eye"></i></a>
-                  <a class="btn btn-warning"><i class="fa fa-pencil-square-o"></i></a>
+                  <a class="btn btn-primary" (click)="editModal.show()"><i class="fa fa-eye"></i></a>
+                  <a class="btn btn-warning" (click)="showModal.show()"><i class="fa fa-pencil-square-o"></i></a>
                   <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
                 </td>
               </tr>
@@ -90,5 +90,11 @@
     <!-- /.col -->
   </div>
   <!-- /.row -->
+     <app-add-contact  #addModal > 
+    </app-add-contact>
+    <app-add-contact  #editModal > 
+    </app-add-contact>
+    <app-add-contact  #showModal > 
+    </app-add-contact>
 </section>
 <!-- /.content -->
