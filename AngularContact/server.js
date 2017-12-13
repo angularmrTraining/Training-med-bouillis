@@ -23,7 +23,7 @@ router.use(function(req, res, next) {
     next();
 });
 // start app ===============================================
-var port = 3001;
+var port = 4000;
 console.log("listening in port", port);
 app.listen(port);
 exports = module.exports = app;
