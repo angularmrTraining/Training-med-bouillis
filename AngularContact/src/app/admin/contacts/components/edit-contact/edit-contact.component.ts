@@ -14,6 +14,8 @@ export class EditContactComponent implements OnInit {
   show(){
     this.editModal.show();
   }
+  ngOnInit() {
+  }
   hide(){
     this.editModal.hide();
   }

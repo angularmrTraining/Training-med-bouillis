@@ -1,0 +1,40 @@
+  <div bsModal #addModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Ajouter un contact</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+ 
+    <form >
+      <div class="form-group" >
+        <label for="name">Firstname</label>
+        <input type="text" class="form-control" [(ngModel)]="contact.firstname" name="firstname" required>
+        <span *ngIf="required && required.firstname" class="error">FirstName is required</span>
+      </div>
+      <div class="form-group">
+        <label for="alterEgo">Lastname</label>
+        <input type="text"  [(ngModel)]="contact.lastname" class="form-control" name="lastname">
+      </div>
+       <div class="form-group">
+        <label for="alterEgo">Email</label>
+        <input type="text" [(ngModel)]="contact.email" class="form-control" name="email" required>
+            <span *ngIf="required && required.email" class="error">invalid email</span>
+      </div>
+ 
+    </form>
+      </div>
+
+      <div class="modal-footer">
+        <div class="pull-left">
+          <button class="btn btn-default" (click)="hide()"> Cancel </button>
+          <button type="submit" (click)="addContact()"class="btn btn-success">Submit</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

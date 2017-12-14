@@ -19,7 +19,4 @@ export class ListContactComponent implements OnInit {
 
   ngOnInit() {
   }
- open() {
-    childModal.show();
-  }
 }

@@ -14,6 +14,8 @@ export class ShowContactComponent implements OnInit {
   show(){
     this.showModal.show();
   }
+  ngOnInit() {
+  }
   hide(){
     this.showModal.hide();
   }
