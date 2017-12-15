@@ -34,48 +34,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0
-                </td>
-                <td>Win 95+</td>
+              <tr *ngFor="let contact of contacts">
+                <td>{{contact.firstname}}</td>
+                <td>{{contact.lastname}}</td>
+                <td>{{contact.email}}</td>
                 <td class=" btn-group-xs text-center">
-                  <a class="btn btn-primary"><i class="fa fa-eye"></i></a>
-                  <a class="btn btn-warning"><i class="fa fa-pencil-square-o"></i></a>
-                  <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 5.0
-                </td>
-                <td>Win 95+</td>
-                <td class=" btn-group-xs text-center">
-                  <a class="btn btn-primary"><i class="fa fa-eye"></i></a>
-                  <a class="btn btn-warning"><i class="fa fa-pencil-square-o"></i></a>
-                  <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 5.5
-                </td>
-                <td>Win 95+</td>
-                <td class=" btn-group-xs text-center">
-                  <a class="btn btn-primary"><i class="fa fa-eye"></i></a>
-                  <a class="btn btn-warning"><i class="fa fa-pencil-square-o"></i></a>
-                  <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 6
-                </td>
-                <td>Win 98+</td>
-                <td class=" btn-group-xs text-center">
-                  <a class="btn btn-primary" (click)="editModal.show()"><i class="fa fa-eye"></i></a>
-                  <a class="btn btn-warning" (click)="showModal.show()"><i class="fa fa-pencil-square-o"></i></a>
-                  <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                  <a class="btn btn-warning"  (click)="editContact(contact)"><i class="fa fa-pencil-square-o"></i></a>
+                  <a class="btn btn-danger" (click)="deleteContact(contact._id)"><i class="fa fa-trash"></i></a>
                 </td>
               </tr>
           </tbody>
@@ -90,11 +55,9 @@
     <!-- /.col -->
   </div>
   <!-- /.row -->
-     <app-add-contact  #addModal > 
+     <app-add-contact  #addModal (change)="contactsChange($event)"> 
     </app-add-contact>
-    <app-add-contact  #editModal > 
-    </app-add-contact>
-    <app-add-contact  #showModal > 
-    </app-add-contact>
+    <app-edit-contact  #editModal [editContact]="contactToEdit" (change)="contactsChange($event)"> 
+    </app-edit-contact>
 </section>
 <!-- /.content -->

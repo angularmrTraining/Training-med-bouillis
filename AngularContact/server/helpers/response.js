@@ -8,7 +8,7 @@ module.exports = {
                 break;
             default :
                 if(msg) {
-                    return res.status(code).json(msg);
+                    return res.json(msg);
                 } else {
                     return res.sendStatus(code);
                 }

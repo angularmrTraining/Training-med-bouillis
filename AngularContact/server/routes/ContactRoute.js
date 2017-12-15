@@ -9,12 +9,10 @@ var routesApiMessage = [{
     httpMethod: 'POST',
     middleware: [function(req, res) {
         var contact = new Contact(req.body);
-
         contact.save(function(err, response) {
             if (err) {
                 return Response.build(res, 500, err);
             } else {
-
                 return Response.build(res, 201, response);
             }
         });
@@ -24,12 +22,9 @@ var routesApiMessage = [{
     path: '/api/contacts',
     httpMethod: 'GET',
     middleware: [function(req, res) {
-        console.log('hs', req.body)
-        return Message.find({},function(err, contact) {
+        return Contact.find({},function(err, contacts) {
             if (!err) {
-                return Response.build(res, 200, {
-                    data: messages,
-                });
+                return Response.build(res, 200, contacts);
             } else {
                 return Response.build(res, 500, err);
             }
@@ -53,7 +48,7 @@ var routesApiMessage = [{
     }]
 },
 {
-    path: '/api/contact/:id',
+    path: '/api/contacts/:id',
     httpMethod: 'DELETE',
     middleware: [function(req, res) {
         return Contact.findByIdAndRemove(req.params.id, function(err, contact) {
@@ -62,7 +57,7 @@ var routesApiMessage = [{
             } else if (!contact) {
                 return Response.build(res, 404, 'contact Not found');
             } else {
-                return Response.build(res, 200);
+                return Response.build(res, 200,contact);
             }
         });
     }]

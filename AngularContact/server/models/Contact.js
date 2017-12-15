@@ -5,12 +5,9 @@ module.exports = function(mongoose) {
     var Schema = mongoose.Schema,
         deepPopulate = require('mongoose-deep-populate')(mongoose);
     var ContactSchema = new Schema({
-        username: String,
-        lastname: String,
         email: String,
-        firstName: String,
-        lastName: String,
-        email: {type:String,unique:true}
+        firstname: String,
+        lastname: String,
     });
     // generating a hash
 
