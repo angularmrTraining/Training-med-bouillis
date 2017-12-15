@@ -25,7 +25,7 @@ export class ContactService {
         public update(contact: Contact): Observable<string> {
         let headers = new Headers({ 'Content-Type': 'application/json'});
     	let options = new RequestOptions({ headers: headers });
-        return this.http.put(`${this.BASE_URL}/contacts/${contact._id}`, contact,options)
+        return this.http.put(`${this.BASE_URL}/contacts/${contact}`, contact,options)
           .map((res: Response) => {
             return res.json();
           });
